@@ -1,0 +1,10 @@
+<div style="padding: 20px;" *ngIf="user">
+    <nz-card nzTitle="Подробная информация" style="width: 300px;">
+      <p><strong>Имя:</strong> {{ user.name }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Телефон:</strong> {{ user.phone }}</p>
+      <p><strong>Вебсайт:</strong> {{ user.website }}</p>
+      <button nz-button nzType="primary" routerLink="/users">Назад к списку</button>
+    </nz-card>
+  </div>
+  <div *ngIf="!user">Загрузка...</div>

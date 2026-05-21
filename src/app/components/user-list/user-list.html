@@ -1,0 +1,34 @@
+<div style="padding: 20px;">
+    <h2>Список пользователей</h2>
+    <nz-input-group [nzSuffix]="suffixIconSearch" style="margin-bottom: 20px;">
+      <input type="text" nz-input placeholder="Поиск по имени или email" [(ngModel)]="searchTerm" (input)="filterUsers()" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <span nz-icon nzType="search"></span>
+    </ng-template>
+    
+    <button nz-button nzType="primary" routerLink="/users/new" style="margin-bottom: 20px;">Добавить пользователя</button>
+  
+    <nz-table #basicTable [nzData]="filteredUsers" [nzLoading]="loading">
+      <thead>
+        <tr>
+          <th>Имя</th>
+          <th>Email</th>
+          <th>Действия</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of basicTable.data">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <a [routerLink]="['/users', user.id]">Просмотр</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a [routerLink]="['/users', user.id, 'edit']">Редактировать</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button nz-button nzDanger nzType="link" (click)="deleteUser(user.id)">Удалить</button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>

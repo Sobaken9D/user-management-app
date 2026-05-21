@@ -1,0 +1,34 @@
+<div style="padding: 20px;">
+    <h2>{{ isEditMode ? 'Редактировать пользователя' : 'Создать пользователя' }}</h2>
+    <form nz-form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Имя</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Пожалуйста, введите имя!">
+          <input nz-input formControlName="name" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired>Email</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="Пожалуйста, введите корректный email!">
+          <input nz-input formControlName="email" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24">Телефон</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="phone" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSm]="6" [nzXs]="24">Вебсайт</nz-form-label>
+        <nz-form-control [nzSm]="14" [nzXs]="24">
+          <input nz-input formControlName="website" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzOffset]="6" [nzSm]="14" [nzXs]="24">
+          <button nz-button nzType="primary" type="submit" [disabled]="!userForm.valid">Сохранить</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
