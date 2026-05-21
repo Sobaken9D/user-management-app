@@ -67,6 +67,16 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<void> {
+    // Если ID > 10, имитируем успешное удаление локально
+    if (id > 10) {
+      return new Observable<void>(observer => {
+        const currentUsers = this.usersSubject.getValue();
+        this.usersSubject.next(currentUsers.filter(u => u.id !== id));
+        observer.next();
+        observer.complete();
+      });
+    }
+
     return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
       tap(() => {
         const currentUsers = this.usersSubject.getValue();
