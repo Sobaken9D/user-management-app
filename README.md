@@ -18,7 +18,6 @@
 ## Запуск
 1. Установите зависимости: `npm install`
 2. Запустите проект: `npm start`
-3. Откройте в браузере: `http://localhost:4200`
 
 ## Деплой
-Приложение размещено на GitHub Pages.
+[Приложение размещено на GitHub Pages.](https://sobaken9d.github.io/user-management-app/#/users)
